@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💌</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{
+background:#d6c1a5;
+color:#3b2a1a;
+text-align:center;
+overflow-x:hidden;
+}
+.page{
+min-height:100vh;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+animation:slide 1s ease;
+}
+.page.active{display:flex}
+button{
+padding:15px 25px;
+margin:10px;
+border:none;
+border-radius:30px;
+background:#8b5e3c;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+button:hover{background:#6e4428}
+img.photo{
+width:260px;
+border-radius:20px;
+margin:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+@keyframes slide{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+.panda{
+font-size:80px;
+animation:dance 1s infinite alternate;
+}
+@keyframes dance{
+from{transform:rotate(-10deg)}
+to{transform:rotate(10deg)}
+}
+.grid{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+.polaroid{
+background:#fff;
+padding:10px;
+border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+<h1>Will you be my Valentine, Aakruthi? 💘</h1>
+<img src="images/normal.jpg" class="photo">
+<button onclick="yes()">Yes 💖</button>
+<button onclick="alert('No is not an option 😌 I’m the best for you and you for me. Don’t even think about it.')">No 🙄</button>
+</div>
+
+<!-- PANDA -->
+<div class="page" id="pPanda">
+<div class="panda">🐼</div>
+<h2>YAHOOOOOO 💃💋 MUAAAH</h2>
+<button onclick="go('p2')">Continue →</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+<h2>Choose 💌</h2>
+<button onclick="go('letter')">Love Letter 💌</button>
+<button onclick="go('choose')">Surprises 🎁</button>
+</div>
+
+<!-- LETTER -->
+<div class="page" id="letter">
+<h2>My Letter 💖</h2>
+<p style="max-width:600px;font-size:18px">
+I miss you.  
+Your brain is honestly crazy… but still not better than mine 😌  
+I’m better than you, but I can never be better *than you*.  
+I’ll definitely teach you volleyball — you HAVE to beat that classmate.  
+This is just the start… and yeah, I love you 🤎
+</p>
+<button onclick="go('choose')">Next →</button>
+</div>
+
+<!-- CHOOSE -->
+<div class="page" id="choose">
+<h2>Choose one 😏</h2>
+<button onclick="go('songs')">Songs 🎵</button>
+<button onclick="go('food')">Food 🍔</button>
+<button onclick="go('flowers')">Flowers 🌸</button>
+</div>
+
+<!-- SONGS -->
+<div class="page" id="songs">
+<h2>Our Songs 🎶</h2>
+<h3>🎧 Video Games – Lana Del Rey</h3>
+<div class="grid">
+<div class="polaroid"><img src="images/song1.jpg" class="photo"></div>
+<div class="polaroid"><img src="images/song2.jpg" class="photo"></div>
+</div>
+<button onclick="go('end')">End →</button>
+</div>
+
+<!-- FOOD -->
+<div class="page" id="food">
+<h2>You love these more than me 😞</h2>
+<p>Bingo • Ice Cream • Blue Lays • Biryani</p>
+<img src="images/song1.jpg" class="photo">
+<button onclick="go('end')">End →</button>
+</div>
+
+<!-- FLOWERS -->
+<div class="page" id="flowers">
+<h2>Be my baby 🌹</h2>
+<div class="grid">
+<img src="images/flowers1.jpg" class="photo">
+<img src="images/flowers2.jpg" class="photo">
+</div>
+<button onclick="go('end')">End →</button>
+</div>
+
+<!-- END -->
+<div class="page" id="end">
+<h1>This is just the start 🤎</h1>
+<h2>There’s more IRL…</h2>
+</div>
+
+<script>
+function go(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+function yes(){
+go('pPanda');
+}
+</script>
+
+</body>
+</html>
